@@ -1,0 +1,13 @@
+{% extends "blogs/base.html" %} {% block content %}
+<p>This a blog for everday use</p>
+{% for post in posts %}
+<ul class="list-group">
+  <li class="list-group-item">
+    <h2>{{ post }}</h2>
+    <p>by {{ post.author }}</p>
+    <p><em>{{ post.description|truncatechars_html:50 }}</em></p>
+    <p>{{ post.content }}</p>
+  </li>
+</ul>
+
+{% endfor %} {% endblock content %}
