@@ -1,0 +1,16 @@
+{% extends "blogs/base.html" %} {% block content %}
+<h1>Cooking</h1>
+{% for post in cooking_posts %}
+<ul class="list-group">
+  <li class="list-group-item">
+    <h2>
+      <a href="{% url 'blogs:post' post.id %}">{{ post }}</a>
+      <small class="text-muted"> ({{ post.category|title }})</small>
+    </h2>
+    <p>by {{ post.author }} - {{ post.when_posted }}</p>
+    <p><em>{{ post.description }}</em></p>
+    <p>{{ post.content|truncatewords:50 }}</p>
+  </li>
+</ul>
+
+{% endfor %} {% endblock content %}

@@ -8,11 +8,23 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Brittany's Blog</title>
-    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} {% comment %}
+    placeholder {% endcomment %} {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'blogs/style.css' %}"
+    />
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
-      <a class="navbar-brand" href="{% url 'blogs:index'%}">Blog</a>
+    <nav
+      class="navbar navbar-expand-md navbar-light bg-light mb-4 border justify-content-center"
+    >
+      <a class="navbar-brand" href="{% url 'blogs:index'%}">Home</a>
+      <a class="navbar-brand" href="{% url 'blogs:family'%}">Family</a>
+      <a class="navbar-brand" href="{% url 'blogs:garden'%}">Garden</a>
+      <a class="navbar-brand" href="{% url 'blogs:cooking'%}">Cooking</a>
       <button
         class="navbar-toggler"
         type="button"
