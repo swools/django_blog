@@ -1,4 +1,5 @@
-{% load bootstrap4 %}
+{% load bootstrap4 %} {% load static %}{% load compress %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,24 +8,27 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %}
     <title>Brittany's Blog</title>
-    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %} {% comment %}
-    placeholder {% endcomment %} {% load static %}
-
+    {% compress css %}
     <link
       rel="stylesheet"
-      type="text/css"
-      href="{% static 'blogs/style.css' %}"
+      type="text/x-scss"
+      href="{% static 'blogs/css/style.scss' %}"
     />
+    {% endcompress %}
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-md navbar-light bg-light mb-4 border justify-content-center"
-    >
-      <a class="navbar-brand" href="{% url 'blogs:index'%}">Home</a>
-      <a class="navbar-brand" href="{% url 'blogs:family'%}">Family</a>
-      <a class="navbar-brand" href="{% url 'blogs:garden'%}">Garden</a>
-      <a class="navbar-brand" href="{% url 'blogs:cooking'%}">Cooking</a>
+    <header class="container">
+      <div class="row flex-nowrap">
+        <div class="col-12 text-center">
+          <a class="blog-name" href="{% url 'blogs:index'%}"
+            >The Wellness Wheel</a
+          >
+        </div>
+      </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
       <button
         class="navbar-toggler"
         type="button"
@@ -36,6 +40,22 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div
+        class="collapse navbar-collapse justify-content-center"
+        id="navbarCollapse"
+      >
+        <ul class="navbar-nav mt-2 mt-lg-0">
+          <li class="nav-item mr-lg-4 ml-lg-4">
+            <a class="nav-link" href="{% url 'blogs:family'%}">Family</a>
+          </li>
+          <li class="nav-item mr-lg-4 ml-lg-4">
+            <a class="nav-link" href="{% url 'blogs:garden'%}">Garden</a>
+          </li>
+          <li class="nav-item mr-lg-4 ml-lg-4">
+            <a class="nav-link" href="{% url 'blogs:cooking'%}">Cooking</a>
+          </li>
+        </ul>
+      </div>
     </nav>
     <main role="main" class="container">
       {% block content %}{% endblock content %}

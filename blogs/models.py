@@ -5,13 +5,13 @@ import math
 
 # Create your models here.
 
-STATUS = (
-    (0, "Draft"),
-    (1, "Publish")
-)
-
 
 class Post(models.Model):
+
+    STATUS = (
+        (0, "Draft"),
+        (1, "Publish")
+    )
 
     FAMILY = 'FAMILY'
     GARDEN = 'GARDEN'
@@ -31,6 +31,7 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    photo = models.ImageField(upload_to="posts")
 
     class Meta:
         ordering = ['-created_on']
@@ -42,11 +43,11 @@ class Post(models.Model):
     def get_color(self):
         color = ''
         if self.category == 'FAMILY':
-            color = 'blue'
+            color = '#F4ABAA'
         elif self.category == 'GARDEN':
-            color = 'green'
+            color = '#3D7DA7'
         elif self.category == 'COOKING':
-            color = 'red'
+            color = '#9B3A95'
         return color
 
     def when_posted(self):

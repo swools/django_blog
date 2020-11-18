@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Ting Tong";
+  src: local("TingTong"), url("/static/blogs/fonts/TingTong.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "Fira Sans Condensed";
+  src: local("FiraSansCondensed-Regular"), url("/static/blogs/fonts/FiraSansCondensed-Regular.ttf") format("truetype"); }
+
+/* line 11, blogs/static/blogs/css/style.scss */
+body {
+  font-family: "Fira Sans Condensed"; }
+
+/* line 15, blogs/static/blogs/css/style.scss */
+.navbar-brand {
+  margin: 0 3rem; }
+
+/* line 19, blogs/static/blogs/css/style.scss */
+.blog-name {
+  font-family: "Ting Tong";
+  color: #212529;
+  font-size: 40px; }
+  /* line 23, blogs/static/blogs/css/style.scss */
+  .blog-name:hover {
+    color: initial;
+    text-decoration: none; }
+
+/* line 29, blogs/static/blogs/css/style.scss */
+.rounded-circle {
+  width: 50%;
+  height: 50%; }
+
+/* line 34, blogs/static/blogs/css/style.scss */
+.navbar-toggler {
+  border: none;
+  padding-left: 0; }
+  /* line 37, blogs/static/blogs/css/style.scss */
+  .navbar-toggler:focus {
+    outline: none; }

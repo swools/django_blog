@@ -1,7 +1,4 @@
 {% extends "blogs/base.html" %} {% block content %}
-<div class="container">
-  <h1>This a blog for everday use</h1>
-</div>
 <div class="main container">
   <div class="row">
     <div class="col-md-8">
@@ -15,18 +12,25 @@
           <p class="mb-1 text-muted">
             {{ post.created_on|date:"F n, Y" }} by
             <a href="#">{{ post.author }}</a>
+            <span>{{ post.when_posted }}</span>
           </p>
           <p><em>{{ post.description }}</em></p>
           <p>{{ post.content|truncatewords:25 }}</p>
+          <img src="{{ post.photo.url }}" />
           <a class="stretched-link" href="{% url 'blogs:post' post.id %}"></a>
         </li>
       </ul>
       {% endfor %}
     </div>
     <div class="col-md-4">
-      <div class="p-4 mb-3 bg-light rounded">
-        {% load static %} <img src={% static 'blogs/IMG_0315.jpeg' %} alt="My
-        image" />
+      <div class="sidebar p-4 mb-3 bg-light rounded">
+        {% load static %}
+        <img
+          class="rounded-circle mx-auto d-block"
+          src="{% static 'blogs/images/brittany.jpeg' %}"
+          alt="My
+        image"
+        />
         <h4 class="font-italic">About</h4>
       </div>
     </div>

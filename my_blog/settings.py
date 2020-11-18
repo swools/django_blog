@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     # Third party apps.
     'bootstrap4',
+    'compressor',
     # Default Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,4 +124,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+COMPRESS_PRECOMPILERS = (
+
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "staticfiles"),
+]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+]
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# Media Root
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
